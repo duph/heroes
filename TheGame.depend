@@ -1,0 +1,89 @@
+# depslib dependency file v1.0
+1534448109 source:c:\users\guest\desktop\игора\intellect.cpp
+	"turn.cpp"
+	<cmath>
+	<iostream>
+
+1534448129 c:\users\guest\desktop\игора\turn.cpp
+	<iostream>
+	<cstdio>
+	<cmath>
+	"lists.cpp"
+
+1534448129 c:\users\guest\desktop\игора\lists.cpp
+	<iostream>
+	"listnode.cpp"
+
+1534448129 c:\users\guest\desktop\игора\listnode.cpp
+	<iostream>
+	"unitTypes.cpp"
+
+1534444711 c:\users\guest\desktop\игора\unittypes.cpp
+	<cstdlib>
+	<ctime>
+	".\unit.cpp"
+
+1534444739 c:\users\guest\desktop\игора\unit.cpp
+	<iostream>
+	<cmath>
+
+1534444712 source:c:\users\guest\desktop\игора\listnode.cpp
+	<iostream>
+	".\unitTypes.cpp"
+
+1534444712 source:c:\users\guest\desktop\игора\lists.cpp
+	<iostream>
+	".\listnode.cpp"
+
+1534444712 source:c:\users\guest\desktop\игора\turn.cpp
+	<iostream>
+	<cstdio>
+	<cmath>
+	".\lists.cpp"
+
+1534444739 source:c:\users\guest\desktop\игора\unit.cpp
+	<iostream>
+	<cmath>
+
+1534444711 source:c:\users\guest\desktop\игора\unittypes.cpp
+	<cstdlib>
+	<ctime>
+	".\unit.cpp"
+
+1534448109 source:f:\paulilusin\c++ programs\dz\thegame\main.cpp
+	<iostream>
+	"src/intellect.cpp"
+
+1534444712 c:\users\guest\desktop\игора\intellect.cpp
+	".\turn.cpp"
+	<cmath>
+	<iostream>
+
+1534444712 f:\paulilusin\c++ programs\dz\thegame\src\intellect.cpp
+	".\turn.cpp"
+	<cmath>
+	<iostream>
+
+1534444712 f:\paulilusin\c++ programs\dz\thegame\src\turn.cpp
+	<iostream>
+	<cstdio>
+	<cmath>
+	".\lists.cpp"
+
+1534444712 f:\paulilusin\c++ programs\dz\thegame\src\lists.cpp
+	<iostream>
+	".\listnode.cpp"
+
+1534444712 f:\paulilusin\c++ programs\dz\thegame\src\listnode.cpp
+	<iostream>
+	".\unitTypes.cpp"
+
+1534444711 f:\paulilusin\c++ programs\dz\thegame\src\unittypes.cpp
+	<cstdlib>
+	<ctime>
+	".\unit.cpp"
+
+1534444739 f:\paulilusin\c++ programs\dz\thegame\src\unit.cpp
+	<iostream>
+	<cmath>
+
