@@ -1,18 +1,34 @@
+#ifndef _UNIT_CPP_
+#define _UNIT_CPP_
+
 #include <iostream>
 #include <cmath>
-#define xmax 16
-#define ymax 16
+
 using namespace std;
+int ymax = 16;
+int xmax = 16;
 class Coordinate {
 private:
     int x;
     int y;
 public:
     Coordinate() {
-
+        x = -1;
+        y = -1;
     }
     Coordinate(int newX, int newY) : x(newX), y(newY){
 
+    }
+    Coordinate &operator=(Coordinate newOne) {
+        x = newOne.x;
+        y = newOne.y;
+        return *this;
+    }
+    bool operator==(Coordinate two) {
+        if (x == two.x && y == two.y) {
+            return true;
+        }
+        return false;
     }
 public:
     int getX() {
@@ -27,8 +43,8 @@ public:
     void setY(int newY) {
         y = newY;
     }
-    void cordinate() {
-        cout << "X: " << x << "  Y: " << y << endl;
+    void print() {
+        cout << "(" << x << ", " << y << ")" << endl;
     }
 };
 class Unit {
@@ -72,7 +88,6 @@ public:
         damage = 5;
         range = 1;
         action = false;
-        Coordinate crd;
         setX(0);
         setY(0);
     }
@@ -80,6 +95,9 @@ public:
         //cout << "Unit destructed" << endl;
     }
 public:
+    Coordinate getCrd() {
+        return crd;
+    }
     int getX() {
         return crd.getX();
     }
@@ -136,23 +154,43 @@ public:
         target.health -= this->damage;
         this->action = true;
     }
-    void walkto(Coordinate newOne) {
+    Coordinate walkto(Coordinate newOne) {
         if (newOne.getX() >= xmax || newOne.getX() < 0 || newOne.getY() >= ymax || newOne.getY() < 0 || abs(getX() - newOne.getX()) + abs(getY() - newOne.getY()) > stamina) {
             cout << "Can't walk over there" << endl;
-            return;
+            return crd;
         }
+        action = true;
         setX(newOne.getX());
         setY(newOne.getY());
-        action = true;
-        return;
+        return newOne;
     }
     virtual void print() {
         cout << "health: " << health << endl;
         cout << "coordinates: ";
-        crd.cordinate();
+        crd.print();
+        cout << endl;
+    }
+    virtual void printInfo() {
+        cout << endl;
+        for (int i = 0; i < 32; i++) {
+            cout << "~";
+        }
+        cout << endl;
+        cout << "Usual unit" << endl;
+        crd.print();
+        cout << "Army: " << army << endl;
+        cout << "Health: " << health << endl;
+        cout << "Stamina: " << stamina << endl;
+        cout << "Range: " << range << endl;
+        cout << "Damage: " << damage << endl;
+        for (int i = 0; i < 32; i++) {
+            cout << "~";
+        }
         cout << endl;
     }
     void crdt() {
-        cout << "coordinates: X: " << crd.getX() << "  Y: " << crd.getY() << endl;
+        cout << "coordinates: ";
+        crd.print();
     }
 };
+#endif // _UNIT_CPP_

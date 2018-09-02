@@ -1,11 +1,15 @@
+#ifndef _TURN_CPP_
+#define _TURN_CPP_
+
 #include <iostream>
 #include <cstdio>
 #include <cmath>
-#include ".\lists.cpp"
+#include "battlefield.cpp"
 using namespace std;
 class Game
 {
 protected:
+    BattleField field;
     List *firstOpponent;
     List *secondOpponent;
     int turn;
@@ -20,6 +24,12 @@ public:
         delete secondOpponent;
     }
 public:
+    BattleField getField() {
+        return field;
+    }
+    Cell getCell(int x, int y) {
+        return field.getCell(x, y);
+    }
     List *getFirstOpponent() {
         return firstOpponent;
     }
@@ -207,6 +217,7 @@ public:
         } else {
             buryDead(firstOpponent);
         }
+        //replace lines 192-212 with field.makeDamage(obj, enemies);
         delete[] enemies;
     }
     void walkto(Unit &obj) {
@@ -217,14 +228,12 @@ public:
         cout << "coordinates: ";
         int x, y;
         cin >> x >> y;
-        Coordinate tmp;
-        tmp.setX(x);
-        tmp.setY(y);
+        Coordinate tmp(x, y);
         if (isReserved(tmp) == true) {
             cout << "This coordinate already contains a unit" << endl;
             return;
         }
-        obj.walkto(tmp);
+        field.walkto(&obj, tmp);
         if (enemiesInRange(obj) && obj.getAction() == true) {
             obj.setAction(false);
             makeDamage(obj);
@@ -239,7 +248,8 @@ public:
             cout << "1) Walk" << endl;
             cout << "2) Attack" << endl;
             cout << "3) Skip" << endl;
-            cout << "4) Back" << endl;
+            cout << "4) Info" << endl;
+            cout << "5) Back" << endl;
             cout << "Choose: ";
             cin >> marker;
             if (marker == 1) {
@@ -258,6 +268,9 @@ public:
                     continue;
                 }
             } else if (marker == 4) {
+                obj.printInfo();
+                continue;
+            } else if (marker == 5) {
                 return;
             } else {
                 cout << "Action not chosen" << endl;
@@ -295,20 +308,25 @@ public:
         team->printList();
         printMap();
         while (turnIsOver(team) == false) {
-            cout << "Choose unit: ";
-            int num;
-            cin >> num;
-            num --;
+            cout << "Choose unit(x, y): ";
+            int x, y;
+            cin >> x >> y;
             cout << endl;
-            if (num >= team->getSize()) {
-                cout << "Warrior not chosen" << endl;
+            Coordinate tmp(x, y);
+            Unit chosen;
+            int check = 0;
+            for (int i = 0; i < team->getSize(); i++) {
+                if (team->getNodePos(i)->getWarrior().getCrd() == tmp) {
+                    check = 1;
+                    chosen = team->getNodePos(i)->getWarrior();
+                    break;
+                }
+            }
+            if (check != 1) {
+                cout << "Unit not chosen" << endl;
                 continue;
             }
-            ListNode *cur = team->getStart();
-            for (int i = 0; i < num; i++) {
-                cur = cur->getNext();
-            }
-            oneUnitAction(cur->getWarrior());
+            oneUnitAction(chosen);
         }
         if (gameEnd()) {
             return;
@@ -398,11 +416,13 @@ public:
         int amount;
         cout << "Troop's amount: ";
         cin >> amount;
-        while (amount > ymax) {
+        xmax = amount;
+        ymax = amount;
+        /*while (amount > ymax) {
             cout << "too many troops" << endl;
             cout << "maximal amount is " << ymax << endl;
             cin >> amount;
-        }
+        }*/
         armyChoose(amount, firstOpponent);
         armyChoose(amount, secondOpponent);
         firstOpponent->printList();
@@ -426,3 +446,4 @@ public:
     }
 
 };
+#endif // _TURN_CPP_

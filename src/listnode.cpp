@@ -1,5 +1,7 @@
+#ifndef _LISTNODE_CPP_
+#define _LISTNODE_CPP_
 #include <iostream>
-#include ".\unitTypes.cpp"
+#include "unitTypes.cpp"
 //#include "/sdcard/CppDroid/projects/HeroesOfMightAndMagic/workfiles/unit.cpp"
 
 using namespace std;
@@ -45,4 +47,5 @@ public:
     void print() {
         warrior.print();
     }
-};
+};
+#endif //_LISTNODE_CPP_

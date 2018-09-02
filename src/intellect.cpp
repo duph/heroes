@@ -1,4 +1,7 @@
-#include ".\turn.cpp"
+#ifndef _INTELLECT_CPP_
+#define _INTELLECT_CPP_
+
+#include "turn.cpp"
 #include <cmath>
 #include <iostream>
 using namespace std;
@@ -208,3 +211,4 @@ public:
         }
     }
 };
+#endif // _INTELLECT_CPP_

@@ -1,5 +1,8 @@
+#ifndef _LISTS_CPP_
+#define _LISTS_CPP_
+
 #include <iostream>
-#include ".\listnode.cpp"
+#include "listnode.cpp"
 using namespace std;
 class List {
 private:
@@ -200,3 +203,4 @@ public:
         return cur;
     }
 };
+#endif // _LISTS_CPP_

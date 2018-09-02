@@ -1,0 +1,62 @@
+# depslib dependency file v1.0
+1514140574 source:c:\users\guest\proj\the game\main.cpp
+	<iostream>
+
+1535814316 source:c:\users\guest\proj\the game\archer.cpp
+	<iostream>
+	"archer.hpp"
+
+1535793567 source:c:\users\guest\proj\the game\unit.cpp
+	<iostream>
+	"unit.hpp"
+
+1535793605 c:\users\guest\proj\the game\unit.hpp
+
+1535814385 c:\users\guest\proj\the game\archer.hpp
+	"unit.hpp"
+
+1535793501 source:c:\users\guest\proj\the game\cavalry.cpp
+	<iostream>
+	"cavalry.hpp"
+
+1535814124 c:\users\guest\proj\the game\cavalry.hpp
+	"unit.hpp"
+
+1535812483 source:c:\users\guest\proj\the game\mages.cpp
+	<cstdlib>
+	<ctime>
+	<iostream>
+	"mages.hpp"
+
+1535813524 c:\users\guest\proj\the game\mages.hpp
+	"unit.hpp"
+
+1535810797 source:c:\users\guest\proj\the game\infantry.cpp
+	<iostream>
+	"infantry.hpp"
+
+1535814104 c:\users\guest\proj\the game\infantry.hpp
+	"unit.hpp"
+
+1535710069 source:c:\users\guest\proj\the game\army.cpp
+	<iostream>
+	"army.hpp"
+
+1535710114 c:\users\guest\proj\the game\army.hpp
+	<iostream>
+	"infantry.hpp"
+	"mages.hpp"
+	"cavalry.hpp"
+	"archer.hpp"
+
+1535792009 source:c:\users\guest\proj\the game\battlefield.cpp
+	<iostream>
+	"battlefield.hpp"
+
+1535791986 c:\users\guest\proj\the game\battlefield.hpp
+	<iostream>
+	"infantry.hpp"
+	"cavalry.hpp"
+	"archer.hpp"
+	"mages.hpp"
+

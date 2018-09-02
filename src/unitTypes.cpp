@@ -1,3 +1,6 @@
+#ifndef _UNITTYPES_CPP_
+#define _UNITTYPES_CPP_
+
 #include <cstdlib>
 #include <ctime>
 #include ".\unit.cpp"
@@ -21,7 +24,25 @@ public:
         cout << warType << endl;
         cout << "health: " << health << endl;
         cout << "coordinates: ";
-        crd.cordinate();
+        crd.print();
+        cout << endl;
+    }
+    void printInfo() {
+        cout << endl;
+        for (int i = 0; i < 32; i++) {
+            cout << "~";
+        }
+        cout << endl;
+        cout << warType << endl;
+        crd.print();
+        cout << "Army: " << army << endl;
+        cout << "Health: " << health << endl;
+        cout << "Stamina: " << stamina << endl;
+        cout << "Range: " << range << endl;
+        cout << "Damage: " << damage << endl;
+        for (int i = 0; i < 32; i++) {
+            cout << "~";
+        }
         cout << endl;
     }
 };
@@ -47,7 +68,25 @@ public:
         cout << warType << endl;
         cout << "health: " << health << endl;
         cout << "coordinates: ";
-        crd.cordinate();
+        crd.print();
+        cout << endl;
+    }
+    void printInfo() {
+        cout << endl;
+        for (int i = 0; i < 32; i++) {
+            cout << "~";
+        }
+        cout << endl;
+        cout << warType << endl;
+        crd.print();
+        cout << "Army: " << army << endl;
+        cout << "Health: " << health << endl;
+        cout << "Stamina: " << stamina << endl;
+        cout << "Range: " << range << endl;
+        cout << "Damage: " << damage << endl;
+        for (int i = 0; i < 32; i++) {
+            cout << "~";
+        }
         cout << endl;
     }
 };
@@ -73,7 +112,25 @@ public:
         cout << warType << endl;
         cout << "health: " << health << endl;
         cout << "coordinates: ";
-        crd.cordinate();
+        crd.print();
+        cout << endl;
+    }
+    void printInfo() {
+        cout << endl;
+        for (int i = 0; i < 32; i++) {
+            cout << "~";
+        }
+        cout << endl;
+        cout << warType << endl;
+        crd.print();
+        cout << "Army: " << army << endl;
+        cout << "Health: " << health << endl;
+        cout << "Stamina: " << stamina << endl;
+        cout << "Range: " << range << endl;
+        cout << "Damage: " << damage << endl;
+        for (int i = 0; i < 32; i++) {
+            cout << "~";
+        }
         cout << endl;
     }
 };
@@ -113,7 +170,26 @@ public:
         cout << "health: " << health << endl;
         cout << "mana: " << mana << endl;
         cout << "coordinates: ";
-        crd.cordinate();
+        crd.print();
+        cout << endl;
+    }
+    void printInfo() {
+        cout << endl;
+        for (int i = 0; i < 32; i++) {
+            cout << "~";
+        }
+        cout << endl;
+        cout << warType << endl;
+        crd.print();
+        cout << "Army: " << army << endl;
+        cout << "Health: " << health << endl;
+        cout << "Stamina: " << stamina << endl;
+        cout << "Range: " << range << endl;
+        cout << "Damage: 4 - 20" << endl;
+        cout << "Mana: " << mana << endl;
+        for (int i = 0; i < 32; i++) {
+            cout << "~";
+        }
         cout << endl;
     }
     void makeDamage(Unit &target) {
@@ -132,3 +208,4 @@ public:
         this->mana -= dmg;
     }
 };
+#endif // _UNITTYPES_CPP_
